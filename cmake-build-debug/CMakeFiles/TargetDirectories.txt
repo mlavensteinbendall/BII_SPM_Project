@@ -1,0 +1,3 @@
+/Users/morganlavensteinbendall/Documents/Math_233/BII-StructedPopModel/cmake-build-debug/CMakeFiles/BII_SPM_project.dir
+/Users/morganlavensteinbendall/Documents/Math_233/BII-StructedPopModel/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/morganlavensteinbendall/Documents/Math_233/BII-StructedPopModel/cmake-build-debug/CMakeFiles/rebuild_cache.dir
