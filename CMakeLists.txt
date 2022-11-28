@@ -5,7 +5,6 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(BII_SPM_project
         main.cpp
-        #test.cpp
         #structuredPop.cpp
         #structuredPop.h
         Grid2d.cpp

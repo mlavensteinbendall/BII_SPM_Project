@@ -9,31 +9,35 @@
 
 #include <iostream>
 #include <vector>
+#include <cmath>
+
+using namespace std;
 
 class structedPop {
 
 public:
     structedPop();
-    structedPop(int a, int a_m, int t, double M);
-    std::vector<double> population(int t);
+    structedPop(int a, int a_m, int t, vector<double> u_age);
+    void upwindMethod();
+
 
 private:
     int age;
     int age_max;
     int time;
+    int time_max;
+    int da;
+    int dt;
+    vector<double> u;
+    vector<double> u_t0;    // u(t,0)   - size 102
+    vector<double> u_0a;    // u(0,a)   - size 91
+    vector<double> mu_ind;
 
-    int r;
-    int s;
-    int L;      // Length
-
-    std::vector<double> u_pop;
-
-    double M(int t, int r, int s, int L);   // Biomass
-    double
-
-
-
-
+    vector<double> u_pop;
+    double k_ind(int a){return 5 * exp(-a/10);};    // fecundity rate
+    //void bc_t0();   // boundary condition for u_t0
+    double trapizoidalRule(int t, int ds, int n, vector<double> u);
+    void compute_u_t0(vector<double> & u_t0);
 
 };
 
