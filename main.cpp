@@ -39,9 +39,36 @@ int main() {
         DMs.upwindMethod(sol);
 
         for(int i = 0 ; i < a_max; i++){
-            cout << "u(2,"  << i << ") = " << sol[3][i] << endl;
+            cout << "u(0,"  << i << ") = " << sol[0][i] << endl;
         }
 
+        vector<double> totalDms;
+        totalDms.assign(t_max, 0.);
+        double temp = 0.;
+
+        for(int i = 0; i < t_max; i++){
+            temp = 0.;
+            for(int j = 0; j < a_max; j++){
+                temp += sol[i][j];
+            }
+            totalDms[i] = temp;
+        }
+
+        ofstream out1("totalDMs.csv");
+
+        for (auto& row : totalDms) {
+                out1 << row <<'\n';
+        }
+
+
+
+        ofstream out("test.csv");
+
+        for (auto& row : sol) {
+            for (auto col : row)
+                out << col <<',';
+            out << '\n';
+        }
 
 
 

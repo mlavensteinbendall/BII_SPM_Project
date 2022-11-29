@@ -25,9 +25,9 @@ double structuredPop::u_t0(vector<double> u){
     double s = 0.; // newborns and dead can't reproduce  //(k_ind(0) * u[0]) + (k_ind(age_max) * 0);   //
 
     // Adding middle terms
-    for (int i = 8; i < age_max; i++){
+    for (int i = 7; i < age_max; i++){
         // s += 2 * k_ind(i) * u[i];
-        s += k_ind(i) * u[i];
+        s += k_ind(i+1) * u[i]; // u is from the previous time-step so u[7] population is no u[8]
     }
 
     //return s/2;
@@ -58,7 +58,6 @@ void structuredPop::upwindMethod(vector<vector<double>> &sol){
             if(U_temp[a] < 0){
                 U_temp[a] = 0;
             }
-
         }
 
         U = U_temp;
