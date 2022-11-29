@@ -27,7 +27,7 @@ int main() {
         double dt = 1;          // partition in time
 
         vector<double> u_0a;        // u(0,a) - Amount of DMs at start in each age range
-        u_0a.assign(a_max, 0.);
+        u_0a.assign(t_max, 0.);
         u_0a[5] = 5.;               // 5 DMs that are 6-day and seeded
 
         vector<double> u_t0;        // u(t,0) - Amount of newborns each day

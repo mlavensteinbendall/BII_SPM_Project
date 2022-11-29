@@ -35,9 +35,8 @@ private:
 
     vector<double> u_pop;
     double k_ind(int a){return 5 * exp(-a/10);};    // fecundity rate
-    //void bc_t0();   // boundary condition for u_t0
-    double trapizoidalRule(int t, int ds, int n, vector<double> u);
-    void compute_u_t0(vector<double> & u_t0);
+    double trapizoidalRule(vector<double> u);
+    vector<double> compute_bc_t0(vector<double> & u_t0);
 
 };
 
