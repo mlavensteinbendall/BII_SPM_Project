@@ -52,14 +52,8 @@ build CMakeFiles/BII_SPM_project.dir/main.cpp.o: CXX_COMPILER__BII_SPM_project_D
   OBJECT_DIR = CMakeFiles/BII_SPM_project.dir
   OBJECT_FILE_DIR = CMakeFiles/BII_SPM_project.dir
 
-build CMakeFiles/BII_SPM_project.dir/Grid2d.cpp.o: CXX_COMPILER__BII_SPM_project_Debug /Users/morganlavensteinbendall/Documents/Math_233/BII-StructedPopModel/Grid2d.cpp || cmake_object_order_depends_target_BII_SPM_project
-  DEP_FILE = CMakeFiles/BII_SPM_project.dir/Grid2d.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++14
-  OBJECT_DIR = CMakeFiles/BII_SPM_project.dir
-  OBJECT_FILE_DIR = CMakeFiles/BII_SPM_project.dir
-
-build CMakeFiles/BII_SPM_project.dir/mathtools.cpp.o: CXX_COMPILER__BII_SPM_project_Debug /Users/morganlavensteinbendall/Documents/Math_233/BII-StructedPopModel/mathtools.cpp || cmake_object_order_depends_target_BII_SPM_project
-  DEP_FILE = CMakeFiles/BII_SPM_project.dir/mathtools.cpp.o.d
+build CMakeFiles/BII_SPM_project.dir/structuredPop.cpp.o: CXX_COMPILER__BII_SPM_project_Debug /Users/morganlavensteinbendall/Documents/Math_233/BII-StructedPopModel/structuredPop.cpp || cmake_object_order_depends_target_BII_SPM_project
+  DEP_FILE = CMakeFiles/BII_SPM_project.dir/structuredPop.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++14
   OBJECT_DIR = CMakeFiles/BII_SPM_project.dir
   OBJECT_FILE_DIR = CMakeFiles/BII_SPM_project.dir
@@ -72,7 +66,7 @@ build CMakeFiles/BII_SPM_project.dir/mathtools.cpp.o: CXX_COMPILER__BII_SPM_proj
 #############################################
 # Link the executable BII_SPM_project
 
-build BII_SPM_project: CXX_EXECUTABLE_LINKER__BII_SPM_project_Debug CMakeFiles/BII_SPM_project.dir/main.cpp.o CMakeFiles/BII_SPM_project.dir/Grid2d.cpp.o CMakeFiles/BII_SPM_project.dir/mathtools.cpp.o
+build BII_SPM_project: CXX_EXECUTABLE_LINKER__BII_SPM_project_Debug CMakeFiles/BII_SPM_project.dir/main.cpp.o CMakeFiles/BII_SPM_project.dir/structuredPop.cpp.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
   OBJECT_DIR = CMakeFiles/BII_SPM_project.dir
   POST_BUILD = :

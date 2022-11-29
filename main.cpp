@@ -2,6 +2,7 @@
 #include <vector>
 #include "rapidcsv.h"
 #include <cmath>
+#include "structuredPop.h"
 
 using namespace std;
 
@@ -26,15 +27,24 @@ int main() {
         double da = 1;          // partition in age
         double dt = 1;          // partition in time
 
-        vector<double> u_0a;        // u(0,a) - Amount of DMs at start in each age range
-        u_0a.assign(t_max, 0.);
-        u_0a[5] = 5.;               // 5 DMs that are 6-day and seeded
+        vector<double> u_0a;            // u(0,a) - Amount of DMs at start in each age range
+        u_0a.assign(a_max, 0.);   // set to zero
+        u_0a[5] = 5.;                   // 5 DMs that are 6-day and seeded
 
-        vector<double> u_t0;        // u(t,0) - Amount of newborns each day
+        structuredPop DMs;
 
-        for(int i = 0; i < t_max; i++){
-            //u_t0[i] = trapizoidalRule(i);
-        }
+        vector<vector<double>> sol;
+
+        DMs.setProblem(a_max, t_max, u_0a);
+        DMs.upwindMethod(sol);
+
+//        for(int i; i < a_max; i++){
+//            cout << "u(1,"  << i << "= " << sol[1][i];
+//        }
+
+
+
+
 
 
 

@@ -13,31 +13,22 @@
 
 using namespace std;
 
-class structedPop {
-
-public:
-    structedPop();
-    structedPop(int a, int a_m, int t, vector<double> u_age);
-    void upwindMethod();
-
-
+class structuredPop{
 private:
-    int age;
     int age_max;
-    int time;
     int time_max;
     int da;
     int dt;
-    vector<double> u;
     vector<double> u_t0;    // u(t,0)   - size 102
     vector<double> u_0a;    // u(0,a)   - size 91
     vector<double> mu_ind;
 
-    vector<double> u_pop;
     double k_ind(int a){return 5 * exp(-a/10);};    // fecundity rate
-    double trapizoidalRule(vector<double> u);
-    vector<double> compute_bc_t0(vector<double> & u_t0);
+    double trapezoidalRule(vector<double> u);
 
+public:
+    void upwindMethod(vector<vector<double>> &sol);
+    void setProblem(int a, int t, vector<double> u);
 };
 
 
