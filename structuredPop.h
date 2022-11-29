@@ -17,18 +17,18 @@ class structuredPop{
 private:
     int age_max;
     int time_max;
-    int da;
-    int dt;
-    vector<double> u_t0;    // u(t,0)   - size 102
-    vector<double> u_0a;    // u(0,a)   - size 91
-    vector<double> mu_ind;
+    double da;
+    double dt;
+    vector<double> u_0a;    // u(0,a)   - Amount of DMs we are starting with (size 91)
+    vector<double> mu_ind;  // Mortality Rate -- read in from csv
 
-    double k_ind(int a){return 5 * exp(-a/10);};    // fecundity rate
-    double trapezoidalRule(vector<double> u);
+    double k_ind(int a){return 5 * exp(-a/10);};    // Fecundity Rate -- Graph
+    //double u_t0(vector<double> u);
 
 public:
     void upwindMethod(vector<vector<double>> &sol);
-    void setProblem(int a, int t, vector<double> u);
+    void setProblem(int a, int t, double d_age, double d_time, vector<double> u, vector<double> mu);
+    double u_t0(vector<double> u);
 };
 
 

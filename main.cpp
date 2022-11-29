@@ -29,27 +29,18 @@ int main() {
 
         vector<double> u_0a;            // u(0,a) - Amount of DMs at start in each age range
         u_0a.assign(a_max, 0.);   // set to zero
-        u_0a[5] = 5.;                   // 5 DMs that are 6-day and seeded
+        u_0a[6] = 5.;                   // 5 DMs that are 6-day and seeded
 
         structuredPop DMs;
 
         vector<vector<double>> sol;
 
-        DMs.setProblem(a_max, t_max, u_0a);
+        DMs.setProblem(a_max, t_max, da, dt, u_0a, mu_ind);
         DMs.upwindMethod(sol);
 
-//        for(int i; i < a_max; i++){
-//            cout << "u(1,"  << i << "= " << sol[1][i];
-//        }
-
-
-
-
-
-
-
-
-
+        for(int i = 0 ; i < a_max; i++){
+            cout << "u(2,"  << i << ") = " << sol[3][i] << endl;
+        }
 
 
 
