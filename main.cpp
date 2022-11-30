@@ -38,9 +38,9 @@ int main() {
         DMs.setProblem(a_max, t_max, da, dt, u_0a, mu_ind);
         DMs.upwindMethod(sol);
 
-        for(int i = 0 ; i < a_max; i++){
-            cout << "u(0,"  << i << ") = " << sol[0][i] << endl;
-        }
+//        for(int i = 0 ; i < a_max; i++){
+//            cout << "u(0,"  << i << ") = " << sol[0][i] << endl;
+//        }
 
         vector<double> totalDms;
         totalDms.assign(t_max, 0.);

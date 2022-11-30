@@ -14,10 +14,20 @@ void structuredPop::setProblem(int a, int t, double d_age, double d_time, vector
     mu_ind = mu;
 }
 
-//double structuredPop::k_ind(int a){
-//
-//    return 5 * exp(-a/10);
-//}
+double structuredPop::k_ind(int a, vector<double> u){
+
+    return exp(-a/10)*500/(500+totalPopulation(u));
+}
+
+double structuredPop::totalPopulation(vector<double> u){
+
+    double temp = 0.;
+
+    for(int i = 0; i < age_max; i++){
+        temp += u[i];
+    }
+    return temp;
+}
 
 double structuredPop::u_t0(vector<double> u){
 
@@ -27,7 +37,7 @@ double structuredPop::u_t0(vector<double> u){
     // Adding middle terms
     for (int i = 7; i < age_max; i++){
         // s += 2 * k_ind(i) * u[i];
-        s += k_ind(i+1) * u[i]; // u is from the previous time-step so u[7] population is no u[8]
+        s += k_ind(i+1,u) * u[i]; // u is from the previous time-step so u[7] population is no u[8]
     }
 
     //return s/2;
@@ -53,7 +63,7 @@ void structuredPop::upwindMethod(vector<vector<double>> &sol){
 
         // Calculate the solution
         for(int a = 1; a < age_max; a++){
-            U_temp[a] = U[a] - (dt * (mu_ind[a] * U[a] + ((U[a] - U[a-1])/da)));
+            U_temp[a] = U[a] - (dt * ((mu_ind[a] * U[a]) + ((U[a] - U[a-1])/da)));
 
             if(U_temp[a] < 0){
                 U_temp[a] = 0;

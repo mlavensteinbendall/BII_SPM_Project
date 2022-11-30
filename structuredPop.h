@@ -22,7 +22,8 @@ private:
     vector<double> u_0a;    // u(0,a)   - Amount of DMs we are starting with (size 91)
     vector<double> mu_ind;  // Mortality Rate -- read in from csv
 
-    double k_ind(int a){return 5 * exp(-a/10);};    // Fecundity Rate -- Graph
+    double k_ind(int a, vector<double> u);    // Fecundity Rate -- Graph
+    double totalPopulation(vector<double> u);
     //double u_t0(vector<double> u);
 
 public:
