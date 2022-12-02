@@ -16,11 +16,11 @@ int main() {
 
     int a_max = 91;         // max. age
     int t_max = 102;        // max. days
-    double da = 1;          // partition in age
-    double dt = 1;          // partition in time
+    double da = 1.;          // partition in age
+    double dt = 1.;          // partition in time
 
     vector<double> u_0a;            // u(0,a) - Amount of DMs at start in each age range
-    u_0a.assign(a_max, 0.);   // set to zero
+    u_0a.assign(a_max, 0.);         // set to zero
     u_0a[6] = 5.;                   // 5 DMs that are 6-day and seeded
 
     vector<double> mu_ind = doc.GetColumn<double>("Mortality Rate"); // mortality rate at each age
@@ -35,9 +35,10 @@ int main() {
     }
 
     vector<vector<double>> sol;     // population of age-groups at each time-step
+    sol.empty();                    // clear file
 
     vector<double> totalDms;        // total population at each time-step
-    totalDms.assign(t_max, 0.);
+    totalDms.assign(t_max + 1, 0.);
     double temp = 0.;
 
     structuredPop DMs;      // Structured Population Model
@@ -52,6 +53,13 @@ int main() {
 
     DMs.upwindMethod(sol);
 
+    //  Print solution to csv
+    for (auto& row : sol) {
+        for (auto col : row)
+            outSol << col <<',';
+        outSol << '\n';
+    }
+
 //  View solution at a particular time-step
 //    for(int i = 0 ; i < a_max; i++){
 //        cout << "u(0,"  << i << ") = " << sol[0][i] << endl;
@@ -64,12 +72,6 @@ int main() {
         outTotalPop << row <<'\n';
     }
 
-//  Print solution to csv
-    for (auto& row : sol) {
-        for (auto col : row)
-            outSol << col <<',';
-        outSol << '\n';
-    }
 
     return 0;
 }

@@ -27,7 +27,7 @@ private:
     vector<double> mu_ind;      // Mortality Rate -- read in from csv
     vector<double> totalPop;    // Total Population at each time-step
 
-    double k_ind(int a, vector<double> u){return exp(-a/10)*500/(500+totalPopulation(u));};   // Fecundity Rate
+    double k_ind(int a, vector<double> u); //{return exp(-a/10)*500/(500+totalPopulation(u));};   // Fecundity Rate
     double totalPopulation(vector<double> u);   // Calculate total population at a particular time-step
     double u_t0(vector<double> u);              // Calculate the boundary condition at a particular time
 

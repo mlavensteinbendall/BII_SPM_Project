@@ -17,14 +17,12 @@ void structuredPop::setProblem(int a, int t, double d_age, double d_time, vector
     dt = d_time;        // set partition in time
     u_0a = u;           // set initial population
     mu_ind = mu;        // set mortality rate
-    totalPop.assign(time_max, 0.);  // set size of vector for total population
+    totalPop.assign(time_max + 1, 0.);  // set size of vector for total population
 }
 
-//double structuredPop::k_ind(int a, vector<double> u){
-//
-//
-//    return exp(-a/10)*500/(500+totalPopulation(u));
-//}
+double structuredPop::k_ind(int a, vector<double> u){
+    return  exp( -a / 10.) * 500. / (500. + totalPopulation(u));
+}
 
 double structuredPop::totalPopulation(vector<double> u){
     //  OBJECTIVE -- calculate the total population for given time-step
@@ -45,8 +43,8 @@ double structuredPop::u_t0(vector<double> u){
     // Computing sum of first and last terms
     double s = 0.;      // newborns and dead can't reproduce
 
-    // Adding middle terms (note: Daphnia Magna can give birth at 8-days-old.)
-    for (int i = 7; i < age_max; i++){
+    // Adding middle terms (note: The first birth is happen when daphnids are 9-days-old.)
+    for (int i = 8; i < age_max; i++){
 
         // Need population from previous time-step to get current aged population; hence, u[i] is u[i+1] in the
         // next time-step which we are in.
@@ -64,7 +62,7 @@ void structuredPop::upwindMethod(vector<vector<double>> &sol){
     vector<double> U = u_0a;    // initialize U
     vector<double> U_temp;      // temporary U
 
-    U_temp.assign(age_max, 0.);
+    U_temp.assign(age_max, 0.);     // set to zero vector
 
     for(int t = 0; t < time_max + 1; t++){
 
