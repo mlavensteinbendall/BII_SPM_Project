@@ -7,6 +7,7 @@
 // https://link.springer.com/article/10.1007/s11538-017-0344-8
 
 #include "structuredPop.h"
+#include "cmath"
 
 void structuredPop::setProblem(int a, int t, double d_age, double d_time, vector<double> u, vector<double> mu){
     // OBJECTIVE -- initialize values in class
@@ -21,7 +22,8 @@ void structuredPop::setProblem(int a, int t, double d_age, double d_time, vector
 }
 
 double structuredPop::k_ind(int a, vector<double> u){
-    return  exp( -a / 10.) * 500. / (500. + totalPopulation(u));
+    double p = 2.; //400. / (400. + totalPopulation(u));
+    return (8./3.) * exp( - a / 10.) *  pow(400.,p) / (pow(400.,p) + pow(totalPopulation(u),p));
 }
 
 double structuredPop::totalPopulation(vector<double> u){

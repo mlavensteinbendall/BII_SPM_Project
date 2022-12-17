@@ -13,7 +13,6 @@ int main() {
 
 //    int a_min = 0;          // min. age
 //    int t_min = 0;          // min. days
-
     int a_max = 91;         // max. age
     int t_max = 102;        // max. days
     double da = 1.;          // partition in age
